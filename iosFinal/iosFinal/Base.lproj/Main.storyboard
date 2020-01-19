@@ -7,22 +7,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Favorites-->
-        <scene sceneID="ISJ-HO-D3g">
-            <objects>
-                <viewController id="epU-Gr-zuT" customClass="FavoritesViewController" customModule="iosFinal" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qtE-ng-E4R">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="PlC-Wz-DPb"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Favorites" image="heart.fill" catalog="system" landscapeImage="heart.fill" id="uwd-TK-SxK"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="i3f-ed-QEA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1051" y="186"/>
-        </scene>
         <!--Search View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -73,6 +57,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1960.8695652173915" y="-534.375"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="vZD-8r-cKe">
+            <objects>
+                <tableViewController id="7DZ-JP-8Fu" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gxk-hy-U7Z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Jyc-Di-S9o">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jyc-Di-S9o" id="g4M-iN-FXe">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="7DZ-JP-8Fu" id="pJ7-Q1-czt"/>
+                            <outlet property="delegate" destination="7DZ-JP-8Fu" id="iPz-hm-03G"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="kTo-qw-FhO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xwh-Qt-QVA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1972" y="174"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="553-Ae-c5b">
+            <objects>
+                <navigationController id="DP9-xq-G8v" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="heart.fill" catalog="system" id="SXK-C7-d7e"/>
+                    <navigationItem key="navigationItem" id="ak8-EX-QGU"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CFg-3b-5Ug">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="7DZ-JP-8Fu" kind="relationship" relationship="rootViewController" id="Sja-vk-LTm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SPp-8y-cGx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1051" y="174"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="NMZ-kV-LfD">
@@ -129,14 +160,52 @@
                     <view key="view" contentMode="scaleToFill" id="jxn-3W-tgg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AcY-pD-Yae">
+                                <rect key="frame" x="18" y="125" width="376" height="244"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Mfm-8u-8fM">
+                                <rect key="frame" x="20" y="396" width="51" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="E7o-Ys-b0F">
+                                <rect key="frame" x="18" y="442" width="374" height="186"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="AcY-pD-Yae" firstAttribute="top" secondItem="a27-hj-WJa" secondAttribute="top" constant="37" id="O7a-tH-Tiv"/>
+                            <constraint firstItem="a27-hj-WJa" firstAttribute="bottom" secondItem="AcY-pD-Yae" secondAttribute="bottom" constant="487" id="Rn1-dn-d3r"/>
+                            <constraint firstItem="AcY-pD-Yae" firstAttribute="trailing" secondItem="jxn-3W-tgg" secondAttribute="trailingMargin" id="bTO-HM-6xM"/>
+                            <constraint firstItem="AcY-pD-Yae" firstAttribute="leading" secondItem="a27-hj-WJa" secondAttribute="leading" constant="18" id="dcf-6M-uGp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="a27-hj-WJa"/>
                     </view>
-                    <navigationItem key="navigationItem" id="3wJ-wQ-kdz"/>
+                    <navigationItem key="navigationItem" id="3wJ-wQ-kdz">
+                        <barButtonItem key="rightBarButtonItem" image="heart.fill" catalog="system" id="Ps3-Us-cCg">
+                            <connections>
+                                <action selector="addToFavorites:" destination="0FG-Wc-KdI" id="tF4-hs-WgC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="drinkImage" destination="AcY-pD-Yae" id="j5v-gP-1m7"/>
+                        <outlet property="instructionsText" destination="E7o-Ys-b0F" id="ULl-fH-MzI"/>
+                        <outlet property="titleLabel" destination="Mfm-8u-8fM" id="39T-Dr-GqX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yp4-Gj-Jpu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3849" y="-534"/>
+            <point key="canvasLocation" x="3847.826086956522" y="-534.375"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Lnu-ns-a5Q">
@@ -150,7 +219,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="dFy-Qj-5oH" kind="relationship" relationship="viewControllers" id="Avb-td-6R1"/>
-                        <segue destination="epU-Gr-zuT" kind="relationship" relationship="viewControllers" id="7h3-MX-trt"/>
+                        <segue destination="DP9-xq-G8v" kind="relationship" relationship="viewControllers" id="z3n-rq-Mvx"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="68M-cN-UqG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

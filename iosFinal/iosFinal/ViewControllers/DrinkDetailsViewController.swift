@@ -10,13 +10,22 @@ import UIKit
 
 class DrinkDetailsViewController: UIViewController {
     var drinkItem: Drink!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var drinkImage: UIImageView!
+    @IBOutlet var instructionsText: UITextView!
+    @IBAction func addToFavorites(_ sender: Any) {
+ 
     }
     
-
-
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        updateUI()
+    }
+    
+    func updateUI() {
+        titleLabel.text = drinkItem.strDrink
+        instructionsText.text = drinkItem.strInstructions
+    }
 
 }
+
