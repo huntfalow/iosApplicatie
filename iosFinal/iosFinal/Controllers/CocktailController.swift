@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MenuController {
+class CocktailController {
     let baseURL = URL(string: "https://www.thecocktaildb.com/api/json/v1/1/")!
     
     

@@ -19,7 +19,10 @@ class SearchViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        segue.destination.navigationItem.title = inputDrinkg.text
+         if segue.identifier == "SearchSegue" {
+                let searchResultsTableViewController = segue.destination as!SearchResultsTableViewController
+                searchResultsTableViewController.drink = inputDrinkg.text
+            }
         
     }
 }
