@@ -9,14 +9,13 @@
 import UIKit
 
 class SearchResultsTableViewController: UITableViewController {
-    let cocktailController = CocktailController()
     var drinks = [Drink]()
     var drink: String!
     
         override func viewDidLoad() {
             super.viewDidLoad()
             title = drink.capitalized
-            cocktailController.fetchDrinks(forDrink: drink)
+            CocktailController.shared.fetchDrinks(forDrink: drink)
             { (drinks) in
                 if let drinks = drinks {
                     self.updateUI(with: drinks)
@@ -31,10 +30,11 @@ class SearchResultsTableViewController: UITableViewController {
             }
       }
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+    override func tableView(_ tableView: UITableView,
+    numberOfRowsInSection section: Int) -> Int {
         return drinks.count
     }
+
 
     override func tableView(_ tableView: UITableView, cellForRowAt
     indexPath: IndexPath) -> UITableViewCell {
@@ -47,7 +47,19 @@ class SearchResultsTableViewController: UITableViewController {
     func configure(_ cell: UITableViewCell, forItemAt indexPath:
     IndexPath) {
         let drinkItem = drinks[indexPath.row]
+ 
         cell.textLabel?.text = drinkItem.strDrink
+        cell.detailTextLabel?.text = drinkItem.strInstructions
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender:
+    Any?) {
+        if segue.identifier == "DrinkDetailSegue" {
+            let drinkDetailsViewController = segue.destination
+            as! DrinkDetailsViewController
+            let index = tableView.indexPathForSelectedRow!.row
+            drinkDetailsViewController.drinkItem = drinks[index]
+        }
     }
 }

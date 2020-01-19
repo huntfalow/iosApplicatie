@@ -11,9 +11,9 @@
 		BF10CEB823D3740B0091A18B /* URL+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF10CEB723D3740B0091A18B /* URL+Helpers.swift */; };
 		BF10CEBA23D3824B0091A18B /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF10CEB923D3824B0091A18B /* FavoritesViewController.swift */; };
 		BF10CEBD23D4B6890091A18B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF10CEBC23D4B6890091A18B /* SearchViewController.swift */; };
-		BF10CEBF23D4BEAD0091A18B /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF10CEBE23D4BEAD0091A18B /* SearchResultsTableViewController.swift */; };
 		BF10CEC123D4BF710091A18B /* DrinkDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF10CEC023D4BF710091A18B /* DrinkDetailsViewController.swift */; };
 		BF10CEC423D4C3120091A18B /* CocktailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF10CEC323D4C3110091A18B /* CocktailController.swift */; };
+		BF17ADE823D4FDED00B03A88 /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF17ADE723D4FDED00B03A88 /* SearchResultsTableViewController.swift */; };
 		BF1EE0C323D334A800DAD734 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EE0C223D334A800DAD734 /* AppDelegate.swift */; };
 		BF1EE0C523D334A800DAD734 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EE0C423D334A800DAD734 /* SceneDelegate.swift */; };
 		BF1EE0CA23D334A800DAD734 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1EE0C823D334A800DAD734 /* Main.storyboard */; };
@@ -45,9 +45,9 @@
 		BF10CEB723D3740B0091A18B /* URL+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Helpers.swift"; sourceTree = "<group>"; };
 		BF10CEB923D3824B0091A18B /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		BF10CEBC23D4B6890091A18B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		BF10CEBE23D4BEAD0091A18B /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		BF10CEC023D4BF710091A18B /* DrinkDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailsViewController.swift; sourceTree = "<group>"; };
 		BF10CEC323D4C3110091A18B /* CocktailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailController.swift; sourceTree = "<group>"; };
+		BF17ADE723D4FDED00B03A88 /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchResultsTableViewController.swift; path = ../../SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		BF1EE0BF23D334A800DAD734 /* iosFinal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosFinal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF1EE0C223D334A800DAD734 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF1EE0C423D334A800DAD734 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,9 +107,9 @@
 		BF10CEBB23D4B6530091A18B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BF17ADE723D4FDED00B03A88 /* SearchResultsTableViewController.swift */,
 				BF10CEB923D3824B0091A18B /* FavoritesViewController.swift */,
 				BF10CEBC23D4B6890091A18B /* SearchViewController.swift */,
-				BF10CEBE23D4BEAD0091A18B /* SearchResultsTableViewController.swift */,
 				BF10CEC023D4BF710091A18B /* DrinkDetailsViewController.swift */,
 			);
 			path = ViewControllers;
@@ -314,9 +314,9 @@
 				BF10CEB823D3740B0091A18B /* URL+Helpers.swift in Sources */,
 				BF1EE0C323D334A800DAD734 /* AppDelegate.swift in Sources */,
 				BF1EE0C523D334A800DAD734 /* SceneDelegate.swift in Sources */,
+				BF17ADE823D4FDED00B03A88 /* SearchResultsTableViewController.swift in Sources */,
 				BF10CEBA23D3824B0091A18B /* FavoritesViewController.swift in Sources */,
 				BF10CEC423D4C3120091A18B /* CocktailController.swift in Sources */,
-				BF10CEBF23D4BEAD0091A18B /* SearchResultsTableViewController.swift in Sources */,
 				BF10CEB523D373CA0091A18B /* Cocktails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

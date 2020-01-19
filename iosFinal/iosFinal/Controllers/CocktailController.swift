@@ -9,16 +9,12 @@
 import Foundation
 
 class CocktailController {
-    let baseURL = URL(string: "https://www.thecocktaildb.com/api/json/v1/1/")!
-    
-    
+    static let shared = CocktailController()
+    let baseURL = URL(string: "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=mojito")!
+
     func fetchDrinks(forDrink drinkName: String, completion: @escaping ([Drink]?) -> Void)
     {
-        let searchUrl = baseURL.appendingPathComponent("search.php")
-        let queryUrl = searchUrl.appendingPathComponent("?s=\(drinkName)")
-        
-        
-        let task = URLSession.shared.dataTask(with: queryUrl)
+      let task = URLSession.shared.dataTask(with: baseURL)
               { (data, response, error) in
                 let jsonDecoder = JSONDecoder()
                 if let data = data,
@@ -29,7 +25,5 @@ class CocktailController {
                 }
               }
               task.resume()
-        
     }
-    
 }

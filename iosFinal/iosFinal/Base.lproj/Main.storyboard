@@ -107,7 +107,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="0FG-Wc-KdI" kind="show" id="jb9-gb-iaf"/>
+                                    <segue destination="0FG-Wc-KdI" kind="show" identifier="DrinkDetailSegue" id="jb9-gb-iaf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
