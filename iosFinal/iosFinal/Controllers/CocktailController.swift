@@ -10,11 +10,19 @@ import Foundation
 
 class CocktailController {
     static let shared = CocktailController()
-    let baseURL = URL(string: "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=mojito")!
+  
+    let baseURL = URL(string: "https://www.thecocktaildb.com/api/json/v1/1/search.php?")!
 
+    
+
+   
     func fetchDrinks(forDrink drinkName: String, completion: @escaping ([Drink]?) -> Void)
     {
-      let task = URLSession.shared.dataTask(with: baseURL)
+        let query: [String: String] = [
+            "s": drinkName
+        ]
+         let url = baseURL.withQueries(query)!
+      let task = URLSession.shared.dataTask(with: url)
               { (data, response, error) in
                 let jsonDecoder = JSONDecoder()
                 if let data = data,

@@ -8,10 +8,11 @@
 
 import Foundation
 
-struct Favorites: Codable {
-    var drinks: [Drink]
+struct Favorite {
+   let idDrink: String?
+   let strDrink: String?
+   let strInstructions: String
     
-    init(drinks: [Drink] = []) {
-        self.drinks = drinks
-    }
+    
+
 }

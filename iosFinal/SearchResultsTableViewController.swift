@@ -15,7 +15,7 @@ class SearchResultsTableViewController: UITableViewController {
         override func viewDidLoad() {
             super.viewDidLoad()
             title = drink.capitalized
-            CocktailController.shared.fetchDrinks(forDrink: drink)
+            CocktailController.shared.fetchDrinks(forDrink: drink.lowercased())
             { (drinks) in
                 if let drinks = drinks {
                     self.updateUI(with: drinks)
