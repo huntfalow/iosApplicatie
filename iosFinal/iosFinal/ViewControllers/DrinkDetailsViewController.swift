@@ -15,7 +15,7 @@ class DrinkDetailsViewController: UIViewController {
     @IBOutlet var instructionsText: UITextView!
     
     @IBAction func addToFavorites(_ sender: Any) {
-        let favo = Favorite(idDrink: drinkItem.idDrink, strDrink: drinkItem.strDrink, strInstructions: drinkItem.strInstructions)
+        let favo = Favorite(idDrink: drinkItem.idDrink, strDrink: drinkItem.strDrink, strInstructions: drinkItem.strInstructions, strDrinkThumb: drinkItem.strDrinkThumb)
           
         let dialogMessage = UIAlertController(title: "Confirm", message: "You have added " + (favo.strDrink ?? "te") + " to your recipe book", preferredStyle: .alert)
         
@@ -41,8 +41,11 @@ class DrinkDetailsViewController: UIViewController {
     }
     
     func updateUI() {
+        print(drinkItem.strDrinkThumb)
         titleLabel.text = drinkItem.strDrink
         instructionsText.text = drinkItem.strInstructions
+        drinkImage.load(urlString: drinkItem.strDrinkThumb!)
+        drinkImage.layer.cornerRadius = 10
     }
 
 }

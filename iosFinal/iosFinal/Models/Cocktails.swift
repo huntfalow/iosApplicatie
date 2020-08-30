@@ -20,10 +20,12 @@ struct Drink: Codable {
     let idDrink: String?
     let strDrink: String?
     let strInstructions: String
+    let strDrinkThumb: String?
     
-    init(idDrink: String, strDrink: String,strInstructions: String ) {
+    init(idDrink: String, strDrink: String,strInstructions: String, strDrinkThumb: String ) {
             self.idDrink = idDrink
             self.strDrink = strDrink
             self.strInstructions = strInstructions
+            self.strDrinkThumb = strDrinkThumb
         }
 }

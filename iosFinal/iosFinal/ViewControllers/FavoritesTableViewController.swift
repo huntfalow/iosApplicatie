@@ -69,7 +69,7 @@ class FavoritesTableViewController: UITableViewController {
                let drinkDetailsViewController = segue.destination
                as! DrinkDetailsViewController
                let index = tableView.indexPathForSelectedRow!.row
-               let drinkCast = Drink(idDrink: favorites[index].idDrink!, strDrink: favorites[index].strDrink!, strInstructions: favorites[index].strInstructions)
+            let drinkCast = Drink(idDrink: favorites[index].idDrink!, strDrink: favorites[index].strDrink!, strInstructions: favorites[index].strInstructions, strDrinkThumb: favorites[index].strDrinkThumb!)
               drinkDetailsViewController.drinkItem = drinkCast
             
         }

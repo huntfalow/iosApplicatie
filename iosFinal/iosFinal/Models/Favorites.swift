@@ -12,6 +12,7 @@ struct Favorite: Codable {
    let idDrink: String?
    let strDrink: String?
    let strInstructions: String
+   let strDrinkThumb: String?
     
    static let DocumentsDirectory = FileManager.default.urls(for:.documentDirectory, in: .userDomainMask).first!
    static let ArchiveURL =
@@ -34,8 +35,8 @@ struct Favorite: Codable {
        
         
     static func loadSampleFavorites() -> [Favorite] {
-          let fav1 = Favorite(idDrink: "1", strDrink: "moji", strInstructions: "zuipen")
-        let fav2 = Favorite(idDrink: "2", strDrink: "mojii", strInstructions: "zuipen2")
+          let fav1 = Favorite(idDrink: "1", strDrink: "moji", strInstructions: "zuipen", strDrinkThumb: "temp")
+        let fav2 = Favorite(idDrink: "2", strDrink: "mojii", strInstructions: "zuipen2", strDrinkThumb: "temp")
         return  [fav1,fav2]
       }
 }
