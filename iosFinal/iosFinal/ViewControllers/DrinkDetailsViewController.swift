@@ -10,30 +10,80 @@ import UIKit
 
 class DrinkDetailsViewController: UIViewController {
     var drinkItem: Drink!
+    let paperPlane = UIImage(systemName: "paperplane.fill");
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var drinkImage: UIImageView!
     @IBOutlet var instructionsText: UITextView!
+    @IBOutlet var HeartIcon: UIBarButtonItem!
     
-    @IBAction func addToFavorites(_ sender: Any) {
-        let favo = Favorite(idDrink: drinkItem.idDrink, strDrink: drinkItem.strDrink, strInstructions: drinkItem.strInstructions, strDrinkThumb: drinkItem.strDrinkThumb)
-          
-        let dialogMessage = UIAlertController(title: "Confirm", message: "You have added " + (favo.strDrink ?? "te") + " to your recipe book", preferredStyle: .alert)
+     @IBAction func addToFavorites(_ sender: Any) {
         
-  
+        var favorites = Favorite.loadFavorites()
+        var saved = false
+        let favo = Favorite(idDrink: drinkItem.idDrink, strDrink: drinkItem.strDrink, strInstructions: drinkItem.strInstructions, strDrinkThumb: drinkItem.strDrinkThumb)
+        
+        if(favorites?.contains(favo) == true){
+            saved = true
+        }else{
+            saved = false
+        }
+        
+        
+        
+          
+        let dialogMessage = UIAlertController(title: "Confirm", message: "You have added " + (favo.strDrink ?? "te") + " to your favorites", preferredStyle: .alert)
+    
+        let dialogMessage2 = UIAlertController(title: "Confirm", message: "Are you sure you want to remove this from your favorites?", preferredStyle: .alert)
+        
         let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
             print("Ok button tapped")
          })
+         let ok2 = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+         var favorites = Favorite.loadFavorites()
+              
+         if let index = favorites!.firstIndex(of: favo) {
+                           favorites?.remove(at: index)
+                       }
+             Favorite.saveFavorites(favorites!)
+           
+            
+            
+         })
+          let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) -> Void in
+                  print("Cancel button tapped")
+              }
         
-   
         dialogMessage.addAction(ok)
-      
+        dialogMessage2.addAction(ok2)
+        dialogMessage2.addAction(cancel)
+   
+        
+        if(saved == false){
         self.present(dialogMessage, animated: true, completion: nil)
         var favorites = Favorite.loadFavorites()
+            
+        if(favorites == nil){
+            var favosWhenEmpty = [Favorite]()
+            favosWhenEmpty.append(favo)
+            favorites = favosWhenEmpty
+        }
+            
         favorites?.append(favo)
         Favorite.saveFavorites(favorites!)
+            saved = true
+            
+       }else{
+            
+        self.present(dialogMessage2, animated: true, completion: nil)
+            
+       }
         
- 
     }
+    
+    
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

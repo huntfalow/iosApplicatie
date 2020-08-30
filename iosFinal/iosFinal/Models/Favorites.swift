@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Favorite: Codable {
+struct Favorite: Codable, Equatable {
    let idDrink: String?
    let strDrink: String?
    let strInstructions: String
@@ -35,7 +35,7 @@ struct Favorite: Codable {
        
         
     static func loadSampleFavorites() -> [Favorite] {
-          let fav1 = Favorite(idDrink: "1", strDrink: "moji", strInstructions: "zuipen", strDrinkThumb: "temp")
+        let fav1 = Favorite(idDrink: "1", strDrink: "moji", strInstructions: "zuipen", strDrinkThumb: "temp")
         let fav2 = Favorite(idDrink: "2", strDrink: "mojii", strInstructions: "zuipen2", strDrinkThumb: "temp")
         return  [fav1,fav2]
       }

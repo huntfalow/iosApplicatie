@@ -11,12 +11,18 @@ import UIKit
 class FavoritesTableViewController: UITableViewController {
  
     var favorites = [Favorite]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkForRecipes()
+
+
+        
         
      
     }
     override func viewWillAppear(_ animated: Bool) {
+        checkForRecipes()
            if let savedFavorites = Favorite.loadFavorites(){
                 favorites = savedFavorites
                 }else{
@@ -61,6 +67,22 @@ class FavoritesTableViewController: UITableViewController {
     let favoriteItem = favorites[indexPath.row]
         cell.textLabel?.text = favoriteItem.strDrink
     }
+    
+    func checkForRecipes() {
+        let count = Favorite.loadFavorites()?.count
+        if count == 0{
+          let dialogMessage = UIAlertController(title: "Confirm", message: "Oh oh, it seems that you don't have any favorites yet. Start searching for great recipes now!", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                        self.tabBarController?.selectedIndex = 0
+                       })
+              dialogMessage.addAction(ok)
+             self.present(dialogMessage, animated: true, completion: nil)
+           
+            }
+        }
+      
+      
+    
      override func prepare(for segue: UIStoryboardSegue, sender:
        Any?) {
         
@@ -73,5 +95,9 @@ class FavoritesTableViewController: UITableViewController {
               drinkDetailsViewController.drinkItem = drinkCast
             
         }
-       }}
+       }
+    
+   
+    
+}
 

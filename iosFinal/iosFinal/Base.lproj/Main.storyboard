@@ -216,13 +216,14 @@
                         <viewLayoutGuide key="safeArea" id="a27-hj-WJa"/>
                     </view>
                     <navigationItem key="navigationItem" id="3wJ-wQ-kdz">
-                        <barButtonItem key="rightBarButtonItem" image="heart.fill" catalog="system" id="Ps3-Us-cCg">
+                        <barButtonItem key="rightBarButtonItem" image="heart" catalog="system" id="Ps3-Us-cCg">
                             <connections>
                                 <action selector="addToFavorites:" destination="0FG-Wc-KdI" id="tF4-hs-WgC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="HeartIcon" destination="Ps3-Us-cCg" id="Fr8-Qi-c2k"/>
                         <outlet property="drinkImage" destination="AcY-pD-Yae" id="j5v-gP-1m7"/>
                         <outlet property="instructionsText" destination="E7o-Ys-b0F" id="ULl-fH-MzI"/>
                         <outlet property="titleLabel" destination="Mfm-8u-8fM" id="39T-Dr-GqX"/>
@@ -272,6 +273,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="heart" catalog="system" width="64" height="54"/>
         <image name="heart.fill" catalog="system" width="64" height="54"/>
     </resources>
     <inferredMetricsTieBreakers>
