@@ -58,7 +58,7 @@
             </objects>
             <point key="canvasLocation" x="1960.8695652173915" y="-534.375"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Recipes-->
         <scene sceneID="vZD-8r-cKe">
             <objects>
                 <tableViewController id="7DZ-JP-8Fu" customClass="FavoritesTableViewController" customModule="iosFinal" customModuleProvider="target" sceneMemberID="viewController">
@@ -90,6 +90,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="0FG-Wc-KdI" kind="show" identifier="DrinkDetailSegueFromFavorites" id="ccN-6g-bnM"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -97,7 +100,7 @@
                             <outlet property="delegate" destination="7DZ-JP-8Fu" id="iPz-hm-03G"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="kTo-qw-FhO"/>
+                    <navigationItem key="navigationItem" title="Recipes" id="kTo-qw-FhO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xwh-Qt-QVA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -265,4 +268,7 @@
     <resources>
         <image name="heart.fill" catalog="system" width="64" height="54"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ccN-6g-bnM"/>
+    </inferredMetricsTieBreakers>
 </document>

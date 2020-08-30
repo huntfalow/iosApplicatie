@@ -13,7 +13,25 @@ class DrinkDetailsViewController: UIViewController {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var drinkImage: UIImageView!
     @IBOutlet var instructionsText: UITextView!
+    
     @IBAction func addToFavorites(_ sender: Any) {
+        let favo = Favorite(idDrink: drinkItem.idDrink, strDrink: drinkItem.strDrink, strInstructions: drinkItem.strInstructions)
+          
+        let dialogMessage = UIAlertController(title: "Confirm", message: "You have added " + (favo.strDrink ?? "te") + " to your recipe book", preferredStyle: .alert)
+        
+  
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+            print("Ok button tapped")
+         })
+        
+   
+        dialogMessage.addAction(ok)
+      
+        self.present(dialogMessage, animated: true, completion: nil)
+        var favorites = Favorite.loadFavorites()
+        favorites?.append(favo)
+        Favorite.saveFavorites(favorites!)
+        
  
     }
     

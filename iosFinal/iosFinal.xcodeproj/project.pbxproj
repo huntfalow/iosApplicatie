@@ -16,6 +16,7 @@
 		BF17ADE823D4FDED00B03A88 /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF17ADE723D4FDED00B03A88 /* SearchResultsTableViewController.swift */; };
 		BF17ADEA23D5103100B03A88 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF17ADE923D5103100B03A88 /* Favorites.swift */; };
 		BF17ADEC23D510D000B03A88 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF17ADEB23D510D000B03A88 /* FavoritesTableViewController.swift */; };
+		BF17ADEE23D58A1300B03A88 /* FavoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF17ADED23D58A1300B03A88 /* FavoritesController.swift */; };
 		BF1EE0C323D334A800DAD734 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EE0C223D334A800DAD734 /* AppDelegate.swift */; };
 		BF1EE0C523D334A800DAD734 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EE0C423D334A800DAD734 /* SceneDelegate.swift */; };
 		BF1EE0CA23D334A800DAD734 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1EE0C823D334A800DAD734 /* Main.storyboard */; };
@@ -52,6 +53,7 @@
 		BF17ADE723D4FDED00B03A88 /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchResultsTableViewController.swift; path = ../../SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		BF17ADE923D5103100B03A88 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		BF17ADEB23D510D000B03A88 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
+		BF17ADED23D58A1300B03A88 /* FavoritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesController.swift; sourceTree = "<group>"; };
 		BF1EE0BF23D334A800DAD734 /* iosFinal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosFinal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF1EE0C223D334A800DAD734 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF1EE0C423D334A800DAD734 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				BF10CEC323D4C3110091A18B /* CocktailController.swift */,
+				BF17ADED23D58A1300B03A88 /* FavoritesController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				BF10CEBA23D3824B0091A18B /* FavoritesViewController.swift in Sources */,
 				BF10CEC423D4C3120091A18B /* CocktailController.swift in Sources */,
 				BF10CEB523D373CA0091A18B /* Cocktails.swift in Sources */,
+				BF17ADEE23D58A1300B03A88 /* FavoritesController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

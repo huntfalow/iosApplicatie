@@ -13,7 +13,17 @@ class FavoritesTableViewController: UITableViewController {
     var favorites = [Favorite]()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+     
+    }
+    override func viewWillAppear(_ animated: Bool) {
+           if let savedFavorites = Favorite.loadFavorites(){
+                favorites = savedFavorites
+                }else{
+                print("tesst")
+    }
+        self.tableView.reloadData()
+         
     }
 
     override func tableView(_ tableView: UITableView,
@@ -25,6 +35,8 @@ class FavoritesTableViewController: UITableViewController {
     indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier:
         "FavoriteCellIdentifier", for: indexPath)
+        let favorite = favorites[indexPath.row]
+        cell.textLabel?.text = favorite.strDrink
             configure(cell, forItemAt: indexPath)
             return cell
 }
@@ -39,6 +51,8 @@ class FavoritesTableViewController: UITableViewController {
         if editingStyle == .delete {
             favorites.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            Favorite.saveFavorites(favorites)
+            
         }
     }
     
@@ -47,5 +61,17 @@ class FavoritesTableViewController: UITableViewController {
     let favoriteItem = favorites[indexPath.row]
         cell.textLabel?.text = favoriteItem.strDrink
     }
-}
+     override func prepare(for segue: UIStoryboardSegue, sender:
+       Any?) {
+        
+     
+           if segue.identifier == "DrinkDetailSegueFromFavorites" {
+               let drinkDetailsViewController = segue.destination
+               as! DrinkDetailsViewController
+               let index = tableView.indexPathForSelectedRow!.row
+               let drinkCast = Drink(idDrink: favorites[index].idDrink!, strDrink: favorites[index].strDrink!, strInstructions: favorites[index].strInstructions)
+              drinkDetailsViewController.drinkItem = drinkCast
+            
+        }
+       }}
 
