@@ -46,6 +46,7 @@ class DrinkDetailsViewController: UIViewController {
         instructionsText.text = drinkItem.strInstructions
         drinkImage.load(urlString: drinkItem.strDrinkThumb!)
         drinkImage.layer.cornerRadius = 10
+                
     }
 
 }
