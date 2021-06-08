@@ -15,10 +15,12 @@ class DrinkDetailsViewController: UIViewController {
     @IBOutlet var drinkImage: UIImageView!
     @IBOutlet var instructionsText: UITextView!
     @IBOutlet var HeartIcon: UIBarButtonItem!
+      
     
      @IBAction func addToFavorites(_ sender: Any) {
         
-        var favorites = Favorite.loadFavorites()
+       
+                var favorites = Favorite.loadFavorites()
         var saved = false
         let favo = Favorite(idDrink: drinkItem.idDrink, strDrink: drinkItem.strDrink, strInstructions: drinkItem.strInstructions, strDrinkThumb: drinkItem.strDrinkThumb)
         
@@ -29,7 +31,7 @@ class DrinkDetailsViewController: UIViewController {
         }
         
         
-        
+         
           
         let dialogMessage = UIAlertController(title: "Confirm", message: "You have added " + (favo.strDrink ?? "te") + " to your favorites", preferredStyle: .alert)
     

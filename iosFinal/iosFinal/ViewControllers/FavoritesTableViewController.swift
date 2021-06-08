@@ -16,9 +16,6 @@ class FavoritesTableViewController: UITableViewController {
         super.viewDidLoad()
         checkForRecipes()
 
-
-        
-        
      
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -80,6 +77,11 @@ class FavoritesTableViewController: UITableViewController {
            
             }
         }
+    
+    func okFunctionality()
+       {
+           print("Delete record function called")
+       }
       
       
     
