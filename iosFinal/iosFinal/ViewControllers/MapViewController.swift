@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     @IBOutlet var mapView: MKMapView!
     
     let manager = CLLocationManager()
@@ -18,6 +18,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -33,7 +34,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             manager.stopUpdatingLocation()
-            
             render(location)
         }
     }
@@ -48,12 +48,31 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         
         let region = MKCoordinateRegion(center: coordinate,
                                         span: span)
+        mapView.delegate = self
         mapView.setRegion(region,
                           animated: true)
         
         let pin = MKPointAnnotation()
         pin.coordinate = coordinate
+        pin.title = "Current location"
         mapView.addAnnotation(pin)
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "custom")
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation,
+                                              reuseIdentifier: "custom")
+            annotationView?.canShowCallout = true
+        }else{
+            annotationView?.annotation = annotation
+        }
+        
+        annotationView?.image = UIImage(named: "User")
+        
+        return annotationView
     }
 }
 
