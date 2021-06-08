@@ -50,6 +50,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                                         span: span)
         mapView.setRegion(region,
                           animated: true)
+        
+        let pin = MKPointAnnotation()
+        pin.coordinate = coordinate
+        mapView.addAnnotation(pin)
     }
 }
 
