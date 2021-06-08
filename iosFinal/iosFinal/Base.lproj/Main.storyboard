@@ -124,6 +124,36 @@
             </objects>
             <point key="canvasLocation" x="1051" y="174"/>
         </scene>
+        <!--Map-->
+        <scene sceneID="bv2-am-sEj">
+            <objects>
+                <viewController id="SYl-8K-FUA" customClass="MapViewController" customModule="iosFinal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pEZ-mf-Fhn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qHT-Bc-aBK">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="gos-tm-253" firstAttribute="bottom" secondItem="qHT-Bc-aBK" secondAttribute="bottom" id="7TM-Jy-dGd"/>
+                            <constraint firstItem="qHT-Bc-aBK" firstAttribute="leading" secondItem="gos-tm-253" secondAttribute="leading" id="Hid-ys-q5c"/>
+                            <constraint firstItem="qHT-Bc-aBK" firstAttribute="top" secondItem="gos-tm-253" secondAttribute="top" id="QE2-oS-mWM"/>
+                            <constraint firstItem="gos-tm-253" firstAttribute="trailing" secondItem="qHT-Bc-aBK" secondAttribute="trailing" id="eEG-CP-ORG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gos-tm-253"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Map" image="map.fill" catalog="system" id="bat-eR-eB6"/>
+                    <connections>
+                        <outlet property="mapView" destination="qHT-Bc-aBK" id="OLd-oM-uXs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cmF-1E-RPp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1051" y="1005"/>
+        </scene>
         <!--Root View Controller-->
         <scene sceneID="NMZ-kV-LfD">
             <objects>
@@ -246,6 +276,7 @@
                     <connections>
                         <segue destination="dFy-Qj-5oH" kind="relationship" relationship="viewControllers" id="Avb-td-6R1"/>
                         <segue destination="DP9-xq-G8v" kind="relationship" relationship="viewControllers" id="z3n-rq-Mvx"/>
+                        <segue destination="SYl-8K-FUA" kind="relationship" relationship="viewControllers" id="YJN-s0-Ig1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="68M-cN-UqG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -275,6 +306,7 @@
     <resources>
         <image name="heart" catalog="system" width="64" height="54"/>
         <image name="heart.fill" catalog="system" width="64" height="54"/>
+        <image name="map.fill" catalog="system" width="64" height="56"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="jb9-gb-iaf"/>

@@ -23,6 +23,7 @@
 		BF1EE0CF23D334AA00DAD734 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1EE0CD23D334AA00DAD734 /* LaunchScreen.storyboard */; };
 		BF1EE0DA23D334AA00DAD734 /* iosFinalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EE0D923D334AA00DAD734 /* iosFinalTests.swift */; };
 		BF1EE0E523D334AA00DAD734 /* iosFinalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EE0E423D334AA00DAD734 /* iosFinalUITests.swift */; };
+		BF2D6C22266F9BD4005D3B37 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2D6C21266F9BD4005D3B37 /* MapViewController.swift */; };
 		BF7C8B9824FC09EB00A3F9A5 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7C8B9724FC09EB00A3F9A5 /* ImageExtension.swift */; };
 		BF7C8B9A24FC27C600A3F9A5 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7C8B9924FC27C600A3F9A5 /* ArrayExtension.swift */; };
 /* End PBXBuildFile section */
@@ -67,6 +68,8 @@
 		BF1EE0E023D334AA00DAD734 /* iosFinalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosFinalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF1EE0E423D334AA00DAD734 /* iosFinalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iosFinalUITests.swift; sourceTree = "<group>"; };
 		BF1EE0E623D334AA00DAD734 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF2D6C21266F9BD4005D3B37 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		BF2D6C23266FB691005D3B37 /* waypoint.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = waypoint.gpx; sourceTree = "<group>"; };
 		BF7C8B9724FC09EB00A3F9A5 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 		BF7C8B9924FC27C600A3F9A5 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,6 +124,7 @@
 				BF10CEBC23D4B6890091A18B /* SearchViewController.swift */,
 				BF10CEC023D4BF710091A18B /* DrinkDetailsViewController.swift */,
 				BF17ADEB23D510D000B03A88 /* FavoritesTableViewController.swift */,
+				BF2D6C21266F9BD4005D3B37 /* MapViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -136,6 +140,7 @@
 		BF1EE0B623D334A800DAD734 = {
 			isa = PBXGroup;
 			children = (
+				BF2D6C23266FB691005D3B37 /* waypoint.gpx */,
 				BF1EE0C123D334A800DAD734 /* iosFinal */,
 				BF1EE0D823D334AA00DAD734 /* iosFinalTests */,
 				BF1EE0E323D334AA00DAD734 /* iosFinalUITests */,
@@ -342,6 +347,7 @@
 				BF10CEC423D4C3120091A18B /* CocktailController.swift in Sources */,
 				BF10CEB523D373CA0091A18B /* Cocktails.swift in Sources */,
 				BF7C8B9A24FC27C600A3F9A5 /* ArrayExtension.swift in Sources */,
+				BF2D6C22266F9BD4005D3B37 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
