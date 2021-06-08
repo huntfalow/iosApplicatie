@@ -25,6 +25,7 @@
 		BF1EE0E523D334AA00DAD734 /* iosFinalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EE0E423D334AA00DAD734 /* iosFinalUITests.swift */; };
 		BF2D6C22266F9BD4005D3B37 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2D6C21266F9BD4005D3B37 /* MapViewController.swift */; };
 		BF2D6C25266FD9A6005D3B37 /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2D6C24266FD9A6005D3B37 /* Landmark.swift */; };
+		BF2D6C27266FDB0A005D3B37 /* LandmarkAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2D6C26266FDB0A005D3B37 /* LandmarkAnnotation.swift */; };
 		BF7C8B9824FC09EB00A3F9A5 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7C8B9724FC09EB00A3F9A5 /* ImageExtension.swift */; };
 		BF7C8B9A24FC27C600A3F9A5 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7C8B9924FC27C600A3F9A5 /* ArrayExtension.swift */; };
 /* End PBXBuildFile section */
@@ -72,6 +73,7 @@
 		BF2D6C21266F9BD4005D3B37 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		BF2D6C23266FB691005D3B37 /* waypoint.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = waypoint.gpx; sourceTree = "<group>"; };
 		BF2D6C24266FD9A6005D3B37 /* Landmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
+		BF2D6C26266FDB0A005D3B37 /* LandmarkAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkAnnotation.swift; sourceTree = "<group>"; };
 		BF7C8B9724FC09EB00A3F9A5 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 		BF7C8B9924FC27C600A3F9A5 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,6 +109,7 @@
 				BF10CEB423D373CA0091A18B /* Cocktails.swift */,
 				BF17ADE923D5103100B03A88 /* Favorites.swift */,
 				BF2D6C24266FD9A6005D3B37 /* Landmark.swift */,
+				BF2D6C26266FDB0A005D3B37 /* LandmarkAnnotation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				BF1EE0C323D334A800DAD734 /* AppDelegate.swift in Sources */,
 				BF17ADEC23D510D000B03A88 /* FavoritesTableViewController.swift in Sources */,
 				BF1EE0C523D334A800DAD734 /* SceneDelegate.swift in Sources */,
+				BF2D6C27266FDB0A005D3B37 /* LandmarkAnnotation.swift in Sources */,
 				BF17ADE823D4FDED00B03A88 /* SearchResultsTableViewController.swift in Sources */,
 				BF10CEBA23D3824B0091A18B /* FavoritesViewController.swift in Sources */,
 				BF10CEC423D4C3120091A18B /* CocktailController.swift in Sources */,

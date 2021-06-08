@@ -3,4 +3,69 @@
    uuid = "FB698267-9BE3-4572-AAC2-37F186B1F8C2"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F801F160-C642-4648-A297-E938585132F6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosFinal/ViewControllers/MapViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "MapViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "F801F160-C642-4648-A297-E938585132F6 - d876f4a625ea9f4e"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iosFinal.MapViewController.manager.getter : __C.CLLocationManager"
+                  moduleName = "iosFinal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vincent/Documents/IOS%20Final/iosApplicatie/iosFinal/iosFinal/ViewControllers/MapViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "59">
+               </Location>
+               <Location
+                  uuid = "F801F160-C642-4648-A297-E938585132F6 - f667b5a4df68bf79"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iosFinal.MapViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; iosFinal.MapViewController"
+                  moduleName = "iosFinal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vincent/Documents/IOS%20Final/iosApplicatie/iosFinal/iosFinal/ViewControllers/MapViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "240">
+               </Location>
+               <Location
+                  uuid = "F801F160-C642-4648-A297-E938585132F6 - 44bb16184909905c"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iosFinal.MapViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;iosFinal.MapViewController&gt;"
+                  moduleName = "iosFinal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vincent/Documents/IOS%20Final/iosApplicatie/iosFinal/iosFinal/ViewControllers/MapViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "162">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

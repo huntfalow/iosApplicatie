@@ -14,20 +14,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     @IBOutlet var mapView: MKMapView!
     
     let manager = CLLocationManager()
-    
-    private func getNearByLandmarks(){
-        let request = MKLocalSearch.Request()
-        request.naturalLanguageQuery = "cocktail"
-        
-        let search = MKLocalSearch(request: request)
-        search.start{(response, error) in
-            if let response = response{
-                let mapItems = response.mapItems
-                
-                
-            }
-        }
-    }
+    private var landmarks: [Landmark] = [Landmark]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +27,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         manager.delegate = self
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
-        
+        self.getNearByLandmarks()
         
     }
     
@@ -71,6 +58,26 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         mapView.addAnnotation(pin)
     }
     
+    private func getNearByLandmarks(){
+         let request = MKLocalSearch.Request()
+         request.naturalLanguageQuery = "cocktail"
+         
+         let search = MKLocalSearch(request: request)
+         search.start{(response, error) in
+             if let response = response {
+                 
+                 let mapItems = response.mapItems
+                 self.landmarks = mapItems.map{
+                     Landmark(placemark: $0.placemark)
+                 }
+                 
+             }
+         }
+     }
+    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
+        updateAnnotations(from: mapView)
+    }
+    
     func mapView(_ mapViewIcon: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         var annotationView = mapViewIcon.dequeueReusableAnnotationView(withIdentifier: "custom")
@@ -82,10 +89,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         }else{
             annotationView?.annotation = annotation
         }
-        
+    
         annotationView?.image = UIImage(named: "User")
         
         return annotationView
     }
+    
+    private func updateAnnotations(from mapView: MKMapView){
+        mapView.removeAnnotations(mapView.annotations)
+        let annotations = self.landmarks.map(LandmarkAnnotation.init)
+        mapView.addAnnotations(annotations)
+    }
+
 }
 
