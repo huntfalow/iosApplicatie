@@ -15,6 +15,19 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     let manager = CLLocationManager()
     
+    private func getNearByLandmarks(){
+        let request = MKLocalSearch.Request()
+        request.naturalLanguageQuery = "cocktail"
+        
+        let search = MKLocalSearch(request: request)
+        search.start{(response, error) in
+            if let response = response{
+                let mapItems = response.mapItems
+                
+                
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,9 +71,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         mapView.addAnnotation(pin)
     }
     
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    func mapView(_ mapViewIcon: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "custom")
+        var annotationView = mapViewIcon.dequeueReusableAnnotationView(withIdentifier: "custom")
         
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation,

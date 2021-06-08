@@ -24,6 +24,7 @@
 		BF1EE0DA23D334AA00DAD734 /* iosFinalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EE0D923D334AA00DAD734 /* iosFinalTests.swift */; };
 		BF1EE0E523D334AA00DAD734 /* iosFinalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EE0E423D334AA00DAD734 /* iosFinalUITests.swift */; };
 		BF2D6C22266F9BD4005D3B37 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2D6C21266F9BD4005D3B37 /* MapViewController.swift */; };
+		BF2D6C25266FD9A6005D3B37 /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2D6C24266FD9A6005D3B37 /* Landmark.swift */; };
 		BF7C8B9824FC09EB00A3F9A5 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7C8B9724FC09EB00A3F9A5 /* ImageExtension.swift */; };
 		BF7C8B9A24FC27C600A3F9A5 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7C8B9924FC27C600A3F9A5 /* ArrayExtension.swift */; };
 /* End PBXBuildFile section */
@@ -70,6 +71,7 @@
 		BF1EE0E623D334AA00DAD734 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF2D6C21266F9BD4005D3B37 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		BF2D6C23266FB691005D3B37 /* waypoint.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = waypoint.gpx; sourceTree = "<group>"; };
+		BF2D6C24266FD9A6005D3B37 /* Landmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
 		BF7C8B9724FC09EB00A3F9A5 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 		BF7C8B9924FC27C600A3F9A5 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +106,7 @@
 			children = (
 				BF10CEB423D373CA0091A18B /* Cocktails.swift */,
 				BF17ADE923D5103100B03A88 /* Favorites.swift */,
+				BF2D6C24266FD9A6005D3B37 /* Landmark.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				BF10CEB523D373CA0091A18B /* Cocktails.swift in Sources */,
 				BF7C8B9A24FC27C600A3F9A5 /* ArrayExtension.swift in Sources */,
 				BF2D6C22266F9BD4005D3B37 /* MapViewController.swift in Sources */,
+				BF2D6C25266FD9A6005D3B37 /* Landmark.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
