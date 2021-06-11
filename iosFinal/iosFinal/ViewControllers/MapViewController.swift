@@ -18,7 +18,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
+  
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -27,7 +28,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         manager.delegate = self
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
-        self.getNearByLandmarks()
+      
         
     }
     
@@ -55,28 +56,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         let pin = MKPointAnnotation()
         pin.coordinate = coordinate
         pin.title = "Current location"
+        
         mapView.addAnnotation(pin)
-    }
-    
-    private func getNearByLandmarks(){
-         let request = MKLocalSearch.Request()
-         request.naturalLanguageQuery = "cocktail"
-         
-         let search = MKLocalSearch(request: request)
-         search.start{(response, error) in
-             if let response = response {
-                 
-                 let mapItems = response.mapItems
-                 self.landmarks = mapItems.map{
-                     Landmark(placemark: $0.placemark)
-                 }
-                 
-             }
-         }
-     }
-    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
+        self.getNearByLandmarks()
         updateAnnotations(from: mapView)
     }
+
+
     
     func mapView(_ mapViewIcon: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
@@ -89,17 +75,39 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         }else{
             annotationView?.annotation = annotation
         }
-    
+        
         annotationView?.image = UIImage(named: "User")
         
         return annotationView
     }
     
+
+    
+
+    
+    private func getNearByLandmarks(){
+            let request = MKLocalSearch.Request()
+            request.naturalLanguageQuery = "cocktail"
+        request.region = mapView.region
+            
+            let search = MKLocalSearch(request: request)
+            search.start{(response, error) in
+                if let response = response {
+                    let mapItems = response.mapItems
+                    self.landmarks = mapItems.map{
+                        Landmark(placemark: $0.placemark)
+                    }
+                }
+                    
+                
+            }
+        }
+    
     private func updateAnnotations(from mapView: MKMapView){
-        mapView.removeAnnotations(mapView.annotations)
         let annotations = self.landmarks.map(LandmarkAnnotation.init)
         mapView.addAnnotations(annotations)
     }
+ 
 
 }
 
