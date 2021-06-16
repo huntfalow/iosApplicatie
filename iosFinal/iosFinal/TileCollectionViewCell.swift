@@ -20,5 +20,9 @@ class TileCollectionViewCell: UICollectionViewCell {
         fatalError()
     }
     
+    func configure(with viewModel: TileCollectionViewCellViewModel){
+        
+    }
+    
  
 }
