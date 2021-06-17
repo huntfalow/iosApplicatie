@@ -8,9 +8,11 @@
 
 import UIKit
 
-class CollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
+class CollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     static let identifier = "CollectionTableViewCell"
+    
+    private var viewModels: [TileCollectionViewCellViewModel] = []
     
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -44,7 +46,7 @@ class CollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColl
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return viewModels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -54,11 +56,17 @@ class CollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColl
                   for: indexPath) as? TileCollectionViewCell else {
                       fatalError()
               }
-        
+        cell.configure(with: viewModels[indexPath.row])
         return cell
     }
     
-    func configure(with viewModel: CollectionTableViewCell){
-        
+    func configure(with viewModel: CollectionTableViewCellViewModel){
+        self.viewModels = viewModel.viewModels
+        collectionView.reloadData()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width: CGFloat = contentView.frame.size.width/2.5
+        return CGSize(width: width, height: width/1.1)
     }
 }

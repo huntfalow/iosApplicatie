@@ -13,7 +13,6 @@ class TileCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.backgroundColor = .systemBlue
     }
     
     required init?(coder: NSCoder) {
@@ -21,8 +20,8 @@ class TileCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(with viewModel: TileCollectionViewCellViewModel){
-        
+        contentView.backgroundColor = viewModel.backgroundColor
     }
     
- 
+    
 }

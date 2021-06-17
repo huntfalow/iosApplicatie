@@ -9,5 +9,5 @@
 import Foundation
 
 struct CollectionTableViewCellViewModel{
-    
+    let viewModels: [TileCollectionViewCellViewModel]
 }
