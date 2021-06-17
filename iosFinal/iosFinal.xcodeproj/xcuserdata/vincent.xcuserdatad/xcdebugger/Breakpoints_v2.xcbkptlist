@@ -36,5 +36,69 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3AB4824A-0E71-490E-A97F-F63054127A06"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SearchResultsTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "updateUI(with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3AB4824A-0E71-490E-A97F-F63054127A06 - a6d506f170692ce7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iosFinal.SearchResultsTableViewController.updateUI(with: Swift.Array&lt;iosFinal.Drink&gt;) -&gt; ()"
+                  moduleName = "iosFinal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vincent/Documents/IOS%20Final/iosApplicatie/iosFinal/SearchResultsTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "176">
+               </Location>
+               <Location
+                  uuid = "3AB4824A-0E71-490E-A97F-F63054127A06 - 39ab5ca057b0557b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in iosFinal.SearchResultsTableViewController.updateUI(with: Swift.Array&lt;iosFinal.Drink&gt;) -&gt; ()"
+                  moduleName = "iosFinal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vincent/Documents/IOS%20Final/iosApplicatie/iosFinal/SearchResultsTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "87">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9371D823-5ECD-4292-AB5B-F735EC9C1821"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SearchResultsTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

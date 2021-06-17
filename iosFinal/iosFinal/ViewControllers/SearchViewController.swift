@@ -11,6 +11,7 @@ import UIKit
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var inputDrinkg: UITextField!
+    var randomDrinks = [Drink]()
     
     private let tableView: UITableView = {
        let table = UITableView()
@@ -29,12 +30,27 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         )
     ]
     
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
+        CocktailController.shared.fetchRandomDrinks()
+        { (drinks) in
+            if let drinks = drinks {
+                self.mapRandomDrinks(with: drinks)
+            }
+        }
+   
         tableView.dataSource = self
         tableView.delegate = self
     }
+  
+    
+    func mapRandomDrinks(with drinks: [Drink]) {
+               DispatchQueue.main.async {
+                   self.randomDrinks = drinks
+               }
+         }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
