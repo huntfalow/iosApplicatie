@@ -14,7 +14,8 @@ class SearchViewController: UIViewController {
     @IBOutlet var inputDrinkg: UITextField!
     var randomDrinks = [Drink]()
     var callCount = 0
-
+    var cellCount = 3
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(SearchViewController.rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
@@ -29,6 +30,7 @@ class SearchViewController: UIViewController {
     }
     
     func getRandomData(){
+        
         CocktailController.shared.fetchRandomDrinks()
         { (drinks) in
             if let drinks = drinks {
@@ -45,13 +47,14 @@ class SearchViewController: UIViewController {
             }
         }
     }
-    
+  
     func mapRandomDrinks(with drinks: [Drink]) {
                DispatchQueue.main.async {
                    self.randomDrinks = drinks
+                print("---=-=-=-=-=-==-=-=-\(self.randomDrinks.count)")
                 self.collectionView.reloadData()
                }
-    }
+        }
     
     deinit {
        NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
@@ -59,29 +62,31 @@ class SearchViewController: UIViewController {
 
     @objc func rotated() {
         if UIDevice.current.orientation.isLandscape {
-            self.collectionView.reloadData()
+            self.cellCount = 5
+           self.collectionView.reloadData()
         } else {
-            self.collectionView.reloadData()
+            self.cellCount = 3
+        self.collectionView.reloadData()
         }
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "SearchSegue" {
                    let searchResultsTableViewController = segue.destination as!SearchResultsTableViewController
                    searchResultsTableViewController.drink = inputDrinkg.text
                }
            
-    }
+       }
 }
 
-    extension SearchViewController : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
+extension SearchViewController : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.randomDrinks.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TileCollectionViewCell", for: indexPath) as! TileCollectionViewCell
-        cell.configureData(image: self.randomDrinks[indexPath.row].strDrinkThumb ?? "")
+        cell.configureData(image: self.randomDrinks[indexPath.row].drinkThumb ?? "")
         return cell
     }
     
@@ -93,8 +98,16 @@ class SearchViewController: UIViewController {
             return CGSize(width: self.collectionView.frame.width / 2, height: self.collectionView.frame.height)
         }
         else{
-            return CGSize(width: self.collectionView.frame.width / 3, height: self.collectionView.frame.height)
+            return CGSize(width: self.collectionView.frame.width / CGFloat(cellCount), height: self.collectionView.frame.height)
         }
        
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "DrinkDetailsViewController") as! DrinkDetailsViewController
+        vc.drinkItem = self.randomDrinks[indexPath.item]
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
 }

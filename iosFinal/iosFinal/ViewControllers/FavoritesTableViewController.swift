@@ -15,8 +15,9 @@ class FavoritesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         checkForRecipes()
+
+     
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         checkForRecipes()
            if let savedFavorites = Favorite.loadFavorites(){
@@ -24,6 +25,7 @@ class FavoritesTableViewController: UITableViewController {
                 }else{
     }
         self.tableView.reloadData()
+         
     }
 
     override func tableView(_ tableView: UITableView,
@@ -36,10 +38,10 @@ class FavoritesTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier:
         "FavoriteCellIdentifier", for: indexPath)
         let favorite = favorites[indexPath.row]
-        cell.textLabel?.text = favorite.strDrink
+        cell.textLabel?.text = favorite.drinkName
             configure(cell, forItemAt: indexPath)
             return cell
-    }
+}
     override func tableView(_ tableView: UITableView, canEditRowAt
     indexPath: IndexPath) -> Bool {
         return true
@@ -52,12 +54,13 @@ class FavoritesTableViewController: UITableViewController {
             favorites.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             Favorite.saveFavorites(favorites)
+            
         }
     }
     
     func configure(_ cell: UITableViewCell, forItemAt indexPath:IndexPath) {
     let favoriteItem = favorites[indexPath.row]
-        cell.textLabel?.text = favoriteItem.strDrink
+        cell.textLabel?.text = favoriteItem.drinkName
     }
     
     func checkForRecipes() {
@@ -72,17 +75,19 @@ class FavoritesTableViewController: UITableViewController {
            
             }
         }
-
+    
      override func prepare(for segue: UIStoryboardSegue, sender:
        Any?) {
+        
+     
            if segue.identifier == "DrinkDetailSegueFromFavorites" {
                let drinkDetailsViewController = segue.destination
                as! DrinkDetailsViewController
                let index = tableView.indexPathForSelectedRow!.row
-            let drinkCast = Drink(idDrink: favorites[index].idDrink!, strDrink: favorites[index].strDrink!, strInstructions: favorites[index].strInstructions, strDrinkThumb: favorites[index].strDrinkThumb!)
+            let drinkCast = Drink(idDrink: Double(favorites[index].drinkId!) ?? 0.0, strDrink: favorites[index].drinkName!, strInstructions: favorites[index].drinkInstructions, strDrinkThumb: favorites[index].drinkThumb!)
               drinkDetailsViewController.drinkItem = drinkCast
+            
         }
        }
-
 }
 

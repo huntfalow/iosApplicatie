@@ -16,18 +16,18 @@ class DrinkDetailsViewController: UIViewController {
     @IBOutlet var instructionsText: UITextView!
     @IBOutlet var HeartIcon: UIBarButtonItem!
     @IBAction func addToFavorites(_ sender: Any) {
-       
-        let favorites = Favorite.loadFavorites()
+
+        var favorites = Favorite.loadFavorites()
         var saved = false
-        let favo = Favorite(idDrink: drinkItem.idDrink, strDrink: drinkItem.strDrink, strInstructions: drinkItem.strInstructions, strDrinkThumb: drinkItem.strDrinkThumb)
-    
+        let favo = Favorite(drinkId: "\(drinkItem.drinkId)", drinkName: drinkItem.drinkName, drinkInstructions: drinkItem.drinkInstructions, drinkThumb: drinkItem.drinkThumb)
+        
         if(favorites?.contains(favo) == true){
             saved = true
         }else{
             saved = false
         }
 
-        let dialogMessage = UIAlertController(title: "Confirm", message: "You have added " + (favo.strDrink ?? "te") + " to your favorites", preferredStyle: .alert)
+        let dialogMessage = UIAlertController(title: "Confirm", message: "You have added " + (favo.drinkName ?? "te") + " to your favorites", preferredStyle: .alert)
     
         let dialogMessage2 = UIAlertController(title: "Confirm", message: "Are you sure you want to remove this from your favorites?", preferredStyle: .alert)
         
@@ -47,6 +47,7 @@ class DrinkDetailsViewController: UIViewController {
         dialogMessage.addAction(ok)
         dialogMessage2.addAction(ok2)
         dialogMessage2.addAction(cancel)
+   
         
         if(saved == false){
         self.present(dialogMessage, animated: true, completion: nil)
@@ -79,9 +80,9 @@ class DrinkDetailsViewController: UIViewController {
     }
     
     func updateUI() {
-        titleLabel.text = drinkItem.strDrink
-        instructionsText.text = drinkItem.strInstructions
-        drinkImage.load(urlString: drinkItem.strDrinkThumb!)
+        titleLabel.text = drinkItem.drinkName
+        instructionsText.text = drinkItem.drinkInstructions
+        drinkImage.load(urlString: drinkItem.drinkThumb!)
         drinkImage.layer.cornerRadius = 10
                 
     }

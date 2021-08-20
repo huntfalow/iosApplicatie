@@ -49,7 +49,7 @@ class SearchResultsTableViewController: UITableViewController {
     IndexPath) {
         let drinkItem = drinks[indexPath.row]
  
-        cell.textLabel?.text = drinkItem.strDrink
+        cell.textLabel?.text = drinkItem.drinkName
         cell.detailTextLabel?.text = ""
         
     }

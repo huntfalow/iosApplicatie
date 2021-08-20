@@ -9,10 +9,10 @@
 import Foundation
 
 struct Favorite: Codable, Equatable {
-   let idDrink: String?
-   let strDrink: String?
-   let strInstructions: String
-   let strDrinkThumb: String?
+   let drinkId: String?
+   let drinkName: String?
+   let drinkInstructions: String
+   let drinkThumb: String?
     
    static let DocumentsDirectory = FileManager.default.urls(for:.documentDirectory, in: .userDomainMask).first!
    static let ArchiveURL =
@@ -32,10 +32,4 @@ struct Favorite: Codable, Equatable {
         let codedFavorites = try? propertyListEncoder.encode(favorites)
         try? codedFavorites?.write(to: ArchiveURL, options: .noFileProtection)
     }
-
-    static func loadSampleFavorites() -> [Favorite] {
-        let fav1 = Favorite(idDrink: "1", strDrink: "moji", strInstructions: "zuipen", strDrinkThumb: "temp")
-        let fav2 = Favorite(idDrink: "2", strDrink: "mojii", strInstructions: "zuipen2", strDrinkThumb: "temp")
-        return  [fav1,fav2]
-      }
 }
