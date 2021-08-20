@@ -17,10 +17,7 @@ class TileCollectionViewCell: UICollectionViewCell {
         contentView.backgroundColor = viewModel.backgroundColor
     }
     
-    
     func configureData(image : String){
         imgCocktail.load(urlString: image)
     }
-    
-    
 }

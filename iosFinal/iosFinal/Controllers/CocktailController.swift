@@ -14,10 +14,7 @@ class CocktailController {
     let baseURL = URL(string: "https://www.thecocktaildb.com/api/json/v1/1/search.php?")!
     
     let baseURLRandom = URL(string:"https://www.thecocktaildb.com/api/json/v1/1/random.php")
-
     
-
-   
     func fetchDrinks(forDrink drinkName: String, completion: @escaping ([Drink]?) -> Void)
     {
         let query: [String: String] = [
@@ -51,6 +48,4 @@ class CocktailController {
               }
               task.resume()
     }
-    
-    
 }

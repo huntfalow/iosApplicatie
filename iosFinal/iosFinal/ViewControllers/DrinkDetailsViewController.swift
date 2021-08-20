@@ -15,30 +15,23 @@ class DrinkDetailsViewController: UIViewController {
     @IBOutlet var drinkImage: UIImageView!
     @IBOutlet var instructionsText: UITextView!
     @IBOutlet var HeartIcon: UIBarButtonItem!
-      
-    
-     @IBAction func addToFavorites(_ sender: Any) {
-        
+    @IBAction func addToFavorites(_ sender: Any) {
        
-        var favorites = Favorite.loadFavorites()
+        let favorites = Favorite.loadFavorites()
         var saved = false
         let favo = Favorite(idDrink: drinkItem.idDrink, strDrink: drinkItem.strDrink, strInstructions: drinkItem.strInstructions, strDrinkThumb: drinkItem.strDrinkThumb)
-        
+    
         if(favorites?.contains(favo) == true){
             saved = true
         }else{
             saved = false
         }
-        
-        
-         
-          
+
         let dialogMessage = UIAlertController(title: "Confirm", message: "You have added " + (favo.strDrink ?? "te") + " to your favorites", preferredStyle: .alert)
     
         let dialogMessage2 = UIAlertController(title: "Confirm", message: "Are you sure you want to remove this from your favorites?", preferredStyle: .alert)
         
         let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-            print("Ok button tapped")
          })
          let ok2 = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
          var favorites = Favorite.loadFavorites()
@@ -49,13 +42,11 @@ class DrinkDetailsViewController: UIViewController {
              Favorite.saveFavorites(favorites!)
          })
           let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) -> Void in
-                  print("Cancel button tapped")
               }
         
         dialogMessage.addAction(ok)
         dialogMessage2.addAction(ok2)
         dialogMessage2.addAction(cancel)
-   
         
         if(saved == false){
         self.present(dialogMessage, animated: true, completion: nil)
@@ -81,19 +72,13 @@ class DrinkDetailsViewController: UIViewController {
        }
         
     }
-    
-    
-    
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
     }
     
     func updateUI() {
-        print(drinkItem.strDrinkThumb)
         titleLabel.text = drinkItem.strDrink
         instructionsText.text = drinkItem.strInstructions
         drinkImage.load(urlString: drinkItem.strDrinkThumb!)

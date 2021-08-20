@@ -32,8 +32,7 @@ struct Favorite: Codable, Equatable {
         let codedFavorites = try? propertyListEncoder.encode(favorites)
         try? codedFavorites?.write(to: ArchiveURL, options: .noFileProtection)
     }
-       
-        
+
     static func loadSampleFavorites() -> [Favorite] {
         let fav1 = Favorite(idDrink: "1", strDrink: "moji", strInstructions: "zuipen", strDrinkThumb: "temp")
         let fav2 = Favorite(idDrink: "2", strDrink: "mojii", strInstructions: "zuipen2", strDrinkThumb: "temp")

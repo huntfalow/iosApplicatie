@@ -15,18 +15,15 @@ class FavoritesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         checkForRecipes()
-
-     
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         checkForRecipes()
            if let savedFavorites = Favorite.loadFavorites(){
                 favorites = savedFavorites
                 }else{
-                print("tesst")
     }
         self.tableView.reloadData()
-         
     }
 
     override func tableView(_ tableView: UITableView,
@@ -42,7 +39,7 @@ class FavoritesTableViewController: UITableViewController {
         cell.textLabel?.text = favorite.strDrink
             configure(cell, forItemAt: indexPath)
             return cell
-}
+    }
     override func tableView(_ tableView: UITableView, canEditRowAt
     indexPath: IndexPath) -> Bool {
         return true
@@ -55,10 +52,8 @@ class FavoritesTableViewController: UITableViewController {
             favorites.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             Favorite.saveFavorites(favorites)
-            
         }
     }
-    
     
     func configure(_ cell: UITableViewCell, forItemAt indexPath:IndexPath) {
     let favoriteItem = favorites[indexPath.row]
@@ -77,29 +72,17 @@ class FavoritesTableViewController: UITableViewController {
            
             }
         }
-    
-    func okFunctionality()
-       {
-           print("Delete record function called")
-       }
-      
-      
-    
+
      override func prepare(for segue: UIStoryboardSegue, sender:
        Any?) {
-        
-     
            if segue.identifier == "DrinkDetailSegueFromFavorites" {
                let drinkDetailsViewController = segue.destination
                as! DrinkDetailsViewController
                let index = tableView.indexPathForSelectedRow!.row
             let drinkCast = Drink(idDrink: favorites[index].idDrink!, strDrink: favorites[index].strDrink!, strInstructions: favorites[index].strInstructions, strDrinkThumb: favorites[index].strDrinkThumb!)
               drinkDetailsViewController.drinkItem = drinkCast
-            
         }
        }
-    
-   
-    
+
 }
 

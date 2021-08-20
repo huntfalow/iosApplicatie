@@ -19,8 +19,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-  
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -29,20 +27,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         manager.delegate = self
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
-      
-        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
-           // self.getNearByLandmarks()
             manager.stopUpdatingLocation()
             render(location)
         }
     }
     
     func render(_ location: CLLocation){
-        
         let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude,
                                                 longitude: location.coordinate.longitude)
         let span = MKCoordinateSpan(latitudeDelta: 0.01,
@@ -57,18 +51,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         pin.title = "Current location"
         self.isForCurrent = true
         mapView.addAnnotation(pin)
-     
-       // updateAnnotations(from: mapView)
     }
-//    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-//        print("clciked")
-//    }
-    
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        print("click")
-    }
-
-    
+ 
     func showMap(lat: String, lng: String) {
         let browserDomen: String = "https://www.google.co.in/maps/dir/"
         let directionBody: String = "?saddr=&daddr=\(lat),\(lng)&directionsmode=driving"
@@ -83,18 +67,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                 guard let browserFullPathUrl = URL(string: browserDomen + directionBody) else { return }
                 UIApplication.shared.open(browserFullPathUrl)
             }
-            // self.showErrorAlert(title: "", message: "Google Maps Not Installed")
         }
     }
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         self.showMap(lat: "\(view.annotation!.coordinate.latitude)", lng: "\(view.annotation!.coordinate.longitude)")
-//        let capital = view.annotation as! Capital
-//        let placeName = capital.title
-//        let placeInfo = capital.info
-//
-//        let ac = UIAlertController(title: placeName, message: placeInfo, preferredStyle: .alert)
-//        ac.addAction(UIAlertAction(title: "OK", style: .default))
-//        present(ac, animated: true)
     }
 
     func mapView(_ mapViewIcon: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -124,9 +100,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
         self.getNearByLandmarks()
     }
-
-    
-
     
     private func getNearByLandmarks(){
             let request = MKLocalSearch.Request()
@@ -149,8 +122,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         mapView.addAnnotations(annotations)
        
     }
- 
-
 }
 
 
