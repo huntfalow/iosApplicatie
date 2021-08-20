@@ -20,7 +20,7 @@ class DrinkDetailsViewController: UIViewController {
      @IBAction func addToFavorites(_ sender: Any) {
         
        
-                var favorites = Favorite.loadFavorites()
+        var favorites = Favorite.loadFavorites()
         var saved = false
         let favo = Favorite(idDrink: drinkItem.idDrink, strDrink: drinkItem.strDrink, strInstructions: drinkItem.strInstructions, strDrinkThumb: drinkItem.strDrinkThumb)
         
@@ -45,11 +45,8 @@ class DrinkDetailsViewController: UIViewController {
               
          if let index = favorites!.firstIndex(of: favo) {
                            favorites?.remove(at: index)
-                       }
+            }
              Favorite.saveFavorites(favorites!)
-           
-            
-            
          })
           let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) -> Void in
                   print("Cancel button tapped")
@@ -69,8 +66,11 @@ class DrinkDetailsViewController: UIViewController {
             favosWhenEmpty.append(favo)
             favorites = favosWhenEmpty
         }
+        else{
+            favorites?.append(favo)
+        }
             
-        favorites?.append(favo)
+       
         Favorite.saveFavorites(favorites!)
             saved = true
             

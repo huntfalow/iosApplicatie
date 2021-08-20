@@ -11,16 +11,15 @@ import UIKit
 class TileCollectionViewCell: UICollectionViewCell {
     static let identifier = "TileCollectionViewCell"
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError()
-    }
-    
+    @IBOutlet weak var imgCocktail: UIImageView!
+
     func configure(with viewModel: TileCollectionViewCellViewModel){
         contentView.backgroundColor = viewModel.backgroundColor
+    }
+    
+    
+    func configureData(image : String){
+        imgCocktail.load(urlString: image)
     }
     
     
